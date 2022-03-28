@@ -1,0 +1,805 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>第二节:模型定义 | beego框架从入门到实战</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../chapter05/03exper表达式.html" />
+    
+    
+    <link rel="prev" href="../chapter05/01orm的使用.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="5.2"
+        data-chapter-title="第二节:模型定义"
+        data-filepath="chapter05/02模型定义.md"
+        data-basepath=".."
+        data-revision="Thu Dec 17 2020 17:17:44 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        课程介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="chapter01/index.html">
+            
+                
+                    <a href="../chapter01/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        第一章：beego框架前奏
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="chapter01/01环境准备.html">
+            
+                
+                    <a href="../chapter01/01环境准备.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        第一节:环境准备
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="chapter01/02第一个beeg项目.html">
+            
+                
+                    <a href="../chapter01/02第一个beeg项目.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        第二节:第一个beeg项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="chapter01/03使用mod.html">
+            
+                
+                    <a href="../chapter01/03使用mod.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        第三节:使用mod
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="chapter01/04运行原理.html">
+            
+                
+                    <a href="../chapter01/04运行原理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        第四节:运行原理
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="chapter02/index.html">
+            
+                
+                    <a href="../chapter02/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        第二章：前后端数据交互
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="chapter02/01模板文件及静态文件的使用.html">
+            
+                
+                    <a href="../chapter02/01模板文件及静态文件的使用.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        第一节:模板文件及静态文件的使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="chapter02/02各种类型数据渲染.html">
+            
+                
+                    <a href="../chapter02/02各种类型数据渲染.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        第二节:各种类型数据渲染
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="chapter02/03获取请求数据.html">
+            
+                
+                    <a href="../chapter02/03获取请求数据.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        第三节:获取请求数据
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="chapter02/04文件上传.html">
+            
+                
+                    <a href="../chapter02/04文件上传.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        第四节:文件上传
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="chapter02/05多种格式数据输出.html">
+            
+                
+                    <a href="../chapter02/05多种格式数据输出.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        第五节:多种格式数据输出
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="chapter03/index.html">
+            
+                
+                    <a href="../chapter03/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        第三章：view模块
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="chapter03/01常用模板语法.html">
+            
+                
+                    <a href="../chapter03/01常用模板语法.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        第一节:常用模板语法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="chapter03/02常用模板函数.html">
+            
+                
+                    <a href="../chapter03/02常用模板函数.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        第二节:常用模板函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="chapter03/03自定义模板函数.html">
+            
+                
+                    <a href="../chapter03/03自定义模板函数.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        第三节:自定义模板函数
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="chapter04/index.html">
+            
+                
+                    <a href="../chapter04/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        第四章：controller模块
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="chapter04/01配置文件的使用.html">
+            
+                
+                    <a href="../chapter04/01配置文件的使用.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        第一节:配置文件的使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="chapter04/02路由详解.html">
+            
+                
+                    <a href="../chapter04/02路由详解.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        第二节:路由详解
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="chapter04/03自定义过滤器.html">
+            
+                
+                    <a href="../chapter04/03自定义过滤器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        第三节:自定义过滤器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="chapter04/04表单数据验证.html">
+            
+                
+                    <a href="../chapter04/04表单数据验证.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        第四节:表单数据验证
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="chapter04/05session和cookie.html">
+            
+                
+                    <a href="../chapter04/05session和cookie.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        第五节:session和cookie
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="chapter05/index.html">
+            
+                
+                    <a href="../chapter05/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        第五章：model模块
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="chapter05/01orm的使用.html">
+            
+                
+                    <a href="../chapter05/01orm的使用.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        第一节:orm的使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.2" data-path="chapter05/02模型定义.html">
+            
+                
+                    <a href="../chapter05/02模型定义.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        第二节:模型定义
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="chapter05/03exper表达式.html">
+            
+                
+                    <a href="../chapter05/03exper表达式.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        第三节:exper表达式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="chapter05/04QueryTable接口.html">
+            
+                
+                    <a href="../chapter05/04QueryTable接口.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        第四节:QueryTable接口
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="chapter05/05自动建表.html">
+            
+                
+                    <a href="../chapter05/05自动建表.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        第五节:自动建表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="chapter05/06表关联.html">
+            
+                
+                    <a href="../chapter05/06表关联.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        第六节:表关联
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="chapter06/index.html">
+            
+                
+                    <a href="../chapter06/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        第六章：日志模块
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="chapter06/01日志模块的使用.html">
+            
+                
+                    <a href="../chapter06/01日志模块的使用.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        第一节:日志模块的使用
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="chapter07/index.html">
+            
+                
+                    <a href="../chapter07/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        第七章：实战
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="chapter07/01实战介绍.html">
+            
+                
+                    <a href="../chapter07/01实战介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        第一节:实战介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="chapter08/index.html">
+            
+                
+                    <a href="../chapter08/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        第八章：项目部署
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="chapter08/01windows部署.html">
+            
+                
+                    <a href="../chapter08/01windows部署.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        第一节:windows部署
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="chapter08/02linux部署.html">
+            
+                
+                    <a href="../chapter08/02linux部署.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        第二节:linux部署
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >beego框架从入门到实战</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x6A21;&#x578B;&#x5B9A;&#x4E49;">&#x6A21;&#x578B;&#x5B9A;&#x4E49;</h1>
+<p>&#x7528;&#x4F5C;&#x6570;&#x636E;&#x5E93;&#x6570;&#x636E;&#x8F6C;&#x6362;&#x548C;&#x81EA;&#x52A8;&#x5EFA;&#x8868;</p>
+<h2 id="&#x4E00;&#x3001;&#x6A21;&#x578B;&#x540D;&#x548C;&#x8868;&#x540D;&#x6620;&#x5C04;">&#x4E00;&#x3001;&#x6A21;&#x578B;&#x540D;&#x548C;&#x8868;&#x540D;&#x6620;&#x5C04;</h2>
+<p>1.&#x6A21;&#x578B;&#x540D;&#x548C;&#x8868;&#x540D;&#x7684;&#x6620;&#x5C04;&#x89C4;&#x5219;&#xFF1A;&#x9664;&#x4E86;&#x5F00;&#x5934;&#x7684;&#x5927;&#x5199;&#x5B57;&#x6BCD;&#x4EE5;&#x5916;&#xFF0C;&#x9047;&#x5230;&#x5927;&#x5199;&#x4F1A;&#x589E;&#x52A0; _&#xFF0C;&#x539F;&#x540D;&#x79F0;&#x4E2D;&#x7684;&#x4E0B;&#x5212;&#x7EBF;&#x4FDD;&#x7559;&#x3002;</p>
+<ul>
+<li>Article -&gt; article</li>
+<li>AuthUser -&gt; auth_user</li>
+<li>Auth_User -&gt; auth__user &#x4E24;&#x4E2A;&#x4E0B;&#x5212;&#x7EBF;</li>
+<li>DB_AuthUser -&gt; d_b__auth_user</li>
+</ul>
+<p>2.&#x81EA;&#x5B9A;&#x4E49;&#x8868;&#x540D;</p>
+<pre><code>type User struct {
+  Id int
+  Name string
+}
+
+func (u *User) TableName() string {
+  return &quot;auth_user&quot;
+}
+</code></pre><h6 id=""> </h6>
+<h2 id="&#x4E8C;&#x3001;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;&#xFF1A;&#x4F7F;&#x7528;structtag">&#x4E8C;&#x3001;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;&#xFF1A;&#x4F7F;&#x7528;structtag</h2>
+<p>1.&#x5FFD;&#x7565;&#x5B57;&#x6BB5;structtag&#xFF1A;`orm:&quot;-&quot;`</p>
+<p>2.pk&#x8BBE;&#x7F6E;&#x4E3A;&#x4E3B;&#x952E;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x81EA;&#x5B9A;&#x4E49;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x4E3A;&#x4E3B;&#x952E;</p>
+<p>3.null&#xFF1A;Name string `orm:&quot;null&quot;`</p>
+<p>4.auto&#xFF1A;&#x81EA;&#x589E;&#x957F;</p>
+<pre><code>Id int `orm:&quot;pk;auto&quot;`
+</code></pre><p>5.index:&#x7D22;&#x5F15;</p>
+<pre><code>Name string `orm:&quot;index&quot;`
+</code></pre><p>&#x7D22;&#x5F15;&#x7684;&#x4F5C;&#x7528;&#xFF1A;&#x4F18;&#x5316;&#x67E5;&#x8BE2;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x56FE;&#x4E66;&#x7684;&#x76EE;&#x5F55;</p>
+<p>6.unique</p>
+<pre><code>Name string `orm:&quot;unique&quot;`
+</code></pre><p>7.column</p>
+<pre><code>Name string `orm:&quot;column(user_name)&quot;`
+</code></pre><p>8.size:&#x5BF9;string&#x8D77;&#x4F5C;&#x7528;</p>
+<pre><code>Title string `orm:&quot;size(60)&quot;`
+</code></pre><p>9.digits / decimals     4 2   12.21</p>
+<pre><code>Money float64 `orm:&quot;digits(12);decimals(4)&quot;` &#x603B;&#x957F;&#x5EA6;12&#xFF0C;&#x5C0F;&#x6570;&#x70B9;&#x540E;&#x6709;4&#x4F4D;&#x5C0F;&#x6570;
+</code></pre><p>10.auto_now / auto_now_add</p>
+<pre><code>Created time.Time `orm:&quot;auto_now_add;type(datetime)&quot;`
+Updated time.Time `orm:&quot;auto_now;type(datetime)&quot;`
+</code></pre><p>auto_now &#x6BCF;&#x6B21; model &#x4FDD;&#x5B58;&#x65F6;&#x90FD;&#x4F1A;&#x5BF9;&#x65F6;&#x95F4;&#x81EA;&#x52A8;&#x66F4;&#x65B0;</p>
+<p>auto_now_add &#x7B2C;&#x4E00;&#x6B21;&#x4FDD;&#x5B58;&#x65F6;&#x624D;&#x8BBE;&#x7F6E;&#x65F6;&#x95F4;</p>
+<p>11.type&#xFF1A;&#x65E5;&#x671F;&#x8FD8;&#x662F;&#x65F6;&#x95F4;</p>
+<pre><code>Created time.Time `orm:&quot;auto_now_add;type(date)&quot;`
+Created time.Time `orm:&quot;auto_now_add;type(datetime)&quot;`
+</code></pre><p>12.default</p>
+<pre><code>Gender float64 `orm:&quot;default(0)&quot;`
+</code></pre><p>13.description</p>
+<p>&#x4FEE;&#x6539;&#x6E90;&#x7801;&#xFF1A;cmd_utils.go&#x7684; getColumnAddQuery()&#x6700;&#x540E;&#x52A0;&#xFF1A;fi.description,</p>
+<pre><code>Name string `orm:&quot;description(&#x8FD9;&#x662F;&#x6807;&#x7B7E;&#x540D;&#x79F0;)&quot;`
+</code></pre><h2 id="&#x4E09;&#x3001;&#x8868;&#x5173;&#x7CFB;">&#x4E09;&#x3001;&#x8868;&#x5173;&#x7CFB;</h2>
+<p>1.&#x4E00;&#x5BF9;&#x4E00;</p>
+<ul>
+<li>User&#x6A21;&#x578B;&#x4E2D;&#xFF1A;    Profile *Profile `orm:&quot;rel(one)&quot;` &#x6B63;&#x5411;&#x5173;&#x7CFB;&#xFF0C;&#x6709;&#x5916;&#x952E;&#x5B57;&#x6BB5;</li>
+<li>Profile&#x6A21;&#x578B;&#x4E2D;&#xFF1A; User *User `orm:&quot;reverse(one)&quot;` &#x53CD;&#x5411;&#x5173;&#x7CFB;&#xFF0C;&#x53EA;&#x662F;&#x5173;&#x7CFB;&#xFF0C;&#x6CA1;&#x6709;&#x5916;&#x952E;</li>
+</ul>
+<p>2.&#x4E00;&#x5BF9;&#x591A;</p>
+<ul>
+<li>article&#x6A21;&#x578B;&#x4E2D;&#xFF1A;User *User `orm:&quot;rel(fk)&quot;` &#x6B63;&#x5411;&#x5173;&#x7CFB;&#xFF0C;&#x6709;&#x5916;&#x952E;&#xFF0C;&#x5916;&#x952E;&#x5728;&#x591A;&#x7684;&#x4E00;&#x65B9;</li>
+<li>user&#x6A21;&#x578B;&#x4E2D;&#xFF1A;Articles []*Articles `orm:&quot;reverse(many)&quot; &#x53CD;&#x5411;&#x5173;&#x7CFB;&#xFF0C;&#x6CA1;&#x6709;&#x5916;&#x952E;</li>
+</ul>
+<p>&#x4E00;&#x5BF9;&#x591A;&#xFF0C;&#x5916;&#x952E;&#x5728;&#x591A;&#x7684;&#x4E00;&#x65B9;</p>
+<p>3.&#x591A;&#x5BF9;&#x591A;</p>
+<ul>
+<li>post&#x6A21;&#x578B;&#x4E2D;&#xFF1A;Tags []*Tag `orm:&quot;rel(m2m)&quot;` &#x6B63;&#x5411;&#x5173;&#x7CFB;&#xFF0C;&#x6CA1;&#x6709;&#x5916;&#x952E;</li>
+<li>tag&#x6A21;&#x578B;&#x4E2D;&#xFF1A;Posts []*Post `orm:&quot;reverse(many)&quot;` &#x53CD;&#x5411;&#x5173;&#x7CFB;&#xFF0C;&#x6CA1;&#x6709;&#x5916;&#x952E;</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../chapter05/01orm的使用.html" class="navigation navigation-prev " aria-label="Previous page: 第一节:orm的使用"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../chapter05/03exper表达式.html" class="navigation navigation-next " aria-label="Next page: 第三节:exper表达式"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
